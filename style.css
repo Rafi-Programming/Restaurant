@@ -1,0 +1,1203 @@
+/* ==========================================================
+   GOURMET HAVEN
+   Premium Restaurant Website
+   PART 2A
+   Global • Navbar • Hero
+========================================================== */
+
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
+:root{
+
+    --primary:#C8A96A;
+    --primary-dark:#A78649;
+
+    --dark:#111827;
+    --dark2:#1F2937;
+
+    --light:#F9FAFB;
+    --gray:#6B7280;
+
+    --shadow:0 15px 35px rgba(0,0,0,.12);
+
+    --radius:18px;
+
+}
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:#fff;
+
+    color:var(--dark);
+
+    overflow-x:hidden;
+
+}
+
+/* ===========================
+   TYPOGRAPHY
+=========================== */
+
+h1,h2,h3,h4{
+
+    font-family:"Playfair Display",serif;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#ececec;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container-custom{
+
+    width:min(1180px,92%);
+
+    margin:auto;
+
+}
+
+/* ===========================
+   SECTION
+=========================== */
+
+.section-padding{
+
+    padding:100px 0;
+
+}
+
+/* ===========================
+   SECTION TITLE
+=========================== */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.section-title span{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:.85rem;
+
+}
+
+.section-title h2{
+
+    font-size:3rem;
+
+    margin-top:10px;
+
+}
+
+.section-title p{
+
+    max-width:650px;
+
+    margin:20px auto 0;
+
+    color:var(--gray);
+
+    line-height:1.8;
+
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+#navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:999;
+
+    transition:.35s;
+
+    padding:20px 0;
+
+}
+
+#navbar.scrolled{
+
+    background:rgba(17,24,39,.85);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+    padding:14px 0;
+
+}
+
+.navbar-wrapper{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:1.8rem;
+
+    font-family:"Playfair Display",serif;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+#navbar.scrolled .logo{
+
+    color:white;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.btn-primary{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    padding:14px 34px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    box-shadow:0 10px 25px rgba(200,169,106,.35);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-4px);
+
+    background:var(--primary-dark);
+
+    box-shadow:0 20px 40px rgba(200,169,106,.35);
+
+}
+
+.btn-secondary{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 34px;
+
+    border-radius:999px;
+
+    border:2px solid white;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+    font-weight:600;
+
+}
+
+.btn-secondary:hover{
+
+    background:white;
+
+    color:var(--dark);
+
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+#hero{
+
+    min-height:100vh;
+
+    background-image:url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=80");
+
+    background-size:cover;
+
+    background-position:center;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.hero-overlay{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    background:
+
+    linear-gradient(
+
+        rgba(10,10,10,.65),
+
+        rgba(10,10,10,.60)
+
+    );
+
+}
+
+.hero-content{
+
+    max-width:720px;
+
+    color:white;
+
+}
+
+.hero-subtitle{
+
+    color:var(--primary);
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+.hero-title{
+
+    font-size:4.8rem;
+
+    line-height:1.1;
+
+    margin-bottom:30px;
+
+}
+
+.hero-description{
+
+    font-size:1.1rem;
+
+    line-height:1.9;
+
+    color:#ededed;
+
+    max-width:600px;
+
+}
+
+.hero-buttons{
+
+    margin-top:45px;
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+/* ===========================
+   HERO ANIMATION
+=========================== */
+
+.hero-content>*{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    animation:fadeUp .8s forwards;
+
+}
+
+.hero-content>*:nth-child(2){
+
+    animation-delay:.15s;
+
+}
+
+.hero-content>*:nth-child(3){
+
+    animation-delay:.35s;
+
+}
+
+.hero-content>*:nth-child(4){
+
+    animation-delay:.55s;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.hero-title{
+
+    font-size:3.5rem;
+
+}
+
+.section-title h2{
+
+    font-size:2.4rem;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.section-padding{
+
+    padding:80px 0;
+
+}
+
+.hero-title{
+
+    font-size:2.7rem;
+
+}
+
+.hero-description{
+
+    font-size:1rem;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+.btn-primary,
+.btn-secondary{
+
+    width:100%;
+
+}
+
+.logo{
+
+    font-size:1.5rem;
+
+}
+
+.section-title h2{
+
+    font-size:2rem;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.hero-title{
+
+    font-size:2.2rem;
+
+}
+
+.hero-subtitle{
+
+    font-size:.8rem;
+
+}
+
+.hero-description{
+
+    line-height:1.7;
+
+}
+
+}
+/* ==========================================================
+   PART 2B-1
+   FACILITIES SECTION
+========================================================== */
+
+/* ===========================
+   FACILITIES GRID
+=========================== */
+
+.grid-layout{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+}
+
+/* ===========================
+   FACILITY CARD
+=========================== */
+
+.facility-card{
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+    transition:all .4s ease;
+    cursor:pointer;
+    position:relative;
+}
+
+.facility-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 22px 55px rgba(0,0,0,.18);
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.facility-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    transition:transform .6s ease;
+}
+
+.facility-card:hover img{
+    transform:scale(1.08);
+}
+
+/* ===========================
+   GOLD LINE
+=========================== */
+
+.facility-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:5px;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        #f3d08d
+    );
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.45s;
+
+}
+
+.facility-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.card-content{
+
+    padding:28px;
+
+}
+
+.card-content h3{
+
+    font-size:1.6rem;
+
+    margin-bottom:14px;
+
+    color:var(--dark);
+
+}
+
+.card-content p{
+
+    color:var(--gray);
+
+    line-height:1.8;
+
+    font-size:.95rem;
+
+}
+
+/* ===========================
+   ICON CIRCLE (optional)
+=========================== */
+
+.facility-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-30px;
+
+    top:-30px;
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    background:rgba(200,169,106,.08);
+
+    transition:.4s;
+
+}
+
+.facility-card:hover::after{
+
+    transform:scale(1.25);
+
+}
+
+/* ===========================
+   SECTION BACKGROUND
+=========================== */
+
+#facilities{
+
+    background:white;
+
+    position:relative;
+
+}
+
+#facilities::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:180px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(200,169,106,.05),
+        transparent
+    );
+
+    pointer-events:none;
+
+}
+
+/* ===========================
+   SCROLL REVEAL
+=========================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1024px){
+
+.grid-layout{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.grid-layout{
+
+    grid-template-columns:1fr;
+
+    gap:24px;
+
+}
+
+.facility-card img{
+
+    height:230px;
+
+}
+
+.card-content{
+
+    padding:24px;
+
+}
+
+.card-content h3{
+
+    font-size:1.4rem;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.facility-card img{
+
+    height:210px;
+
+}
+
+.card-content{
+
+    padding:20px;
+
+}
+
+.card-content p{
+
+    font-size:.9rem;
+
+}
+
+}
+/* ==========================================================
+   PART 2B-2
+   MENU SECTION
+========================================================== */
+
+/* ===========================
+   MENU SECTION
+=========================== */
+
+#menu{
+    position:relative;
+    background:#f8f8f8;
+    overflow:hidden;
+}
+
+/* Background Decoration */
+
+#menu::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    background:rgba(200,169,106,.06);
+
+    top:-180px;
+    right:-180px;
+
+}
+
+#menu::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    background:rgba(200,169,106,.05);
+
+    bottom:-140px;
+    left:-120px;
+
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.menu-grid{
+
+    position:relative;
+
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:32px;
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.menu-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+    position:relative;
+
+}
+
+.menu-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 22px 55px rgba(0,0,0,.18);
+
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.menu-card img{
+
+    width:100%;
+
+    height:270px;
+
+    object-fit:cover;
+
+    transition:.55s;
+
+}
+
+.menu-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.menu-card .card-content{
+
+    padding:28px;
+
+}
+
+.menu-card h3{
+
+    font-size:1.6rem;
+
+    margin-bottom:18px;
+
+    color:var(--dark);
+
+}
+
+/* ===========================
+   PRICE BADGE
+=========================== */
+
+.menu-card span{
+
+    display:inline-block;
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+    box-shadow:0 8px 20px rgba(200,169,106,.25);
+
+}
+
+.menu-card p{
+
+    color:var(--gray);
+
+    line-height:1.8;
+
+    font-size:.95rem;
+
+}
+
+/* ===========================
+   GOLD BORDER EFFECT
+=========================== */
+
+.menu-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border:2px solid transparent;
+
+    border-radius:22px;
+
+    transition:.35s;
+
+}
+
+.menu-card:hover::before{
+
+    border-color:rgba(200,169,106,.45);
+
+}
+
+/* ===========================
+   SHINE EFFECT
+=========================== */
+
+.menu-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+
+    left:-60%;
+
+    width:40%;
+
+    height:250%;
+
+    background:
+
+        linear-gradient(
+
+            rgba(255,255,255,0),
+
+            rgba(255,255,255,.35),
+
+            rgba(255,255,255,0)
+
+        );
+
+    transform:rotate(25deg);
+
+    transition:.8s;
+
+}
+
+.menu-card:hover::after{
+
+    left:130%;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1024px){
+
+.menu-grid{
+
+    gap:26px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.menu-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.menu-card img{
+
+    height:240px;
+
+}
+
+.menu-card .card-content{
+
+    padding:24px;
+
+}
+
+.menu-card h3{
+
+    font-size:1.4rem;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.menu-card img{
+
+    height:210px;
+
+}
+
+.menu-card .card-content{
+
+    padding:20px;
+
+}
+
+.menu-card p{
+
+    font-size:.9rem;
+
+}
+
+.menu-card span{
+
+    font-size:.85rem;
+
+    padding:7px 16px;
+
+}
+
+}
+/* ==========================================================
+   RESERVATION
+========================================================== */
+
+#reservation{
+    background:#f8f8f8;
+    padding:120px 0;
+}
+
+.reservation-form{
+    max-width:720px;
+    margin:50px auto 0;
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.reservation-form input,
+.reservation-form select{
+
+    width:100%;
+    padding:16px 20px;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+    outline:none;
+
+    background:white;
+
+}
+
+.reservation-form input:focus,
+.reservation-form select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(200,169,106,.18);
+
+}
+
+.reservation-form button{
+
+    width:100%;
+    margin-top:10px;
+
+}

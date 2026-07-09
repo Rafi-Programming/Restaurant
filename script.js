@@ -266,13 +266,15 @@ reservationForm.addEventListener(
 
             if (!response.ok) {
 
-                throw new Error(
+    const errorData = await response.text();
 
-                    "Failed to save reservation."
+    console.log("STATUS :", response.status);
+    console.log("ERROR :", errorData);
 
-                );
+    alert(errorData);
 
-            }
+    return;
+}
 
             alert(
 
@@ -284,15 +286,17 @@ reservationForm.addEventListener(
 
         }
 
-        catch (error) {
+        if (!response.ok) {
 
-            console.error(error);
+    const errorData = await response.text();
 
-            alert(
+    console.log("STATUS :", response.status);
+    console.log("ERROR :", errorData);
 
-                "An error occurred while sending reservation."
+    alert(errorData);
 
-            );
+    return;
+}
 
         }
 

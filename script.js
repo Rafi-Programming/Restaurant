@@ -116,256 +116,91 @@ window.addEventListener("load", revealOnScroll);
    FORM SUBMIT
 ========================================================== */
 
-reservationForm.addEventListener(
+reservationForm.addEventListener("submit", async (e) => {
 
-    "submit",
+    e.preventDefault();
 
-    async function (e) {
+    const fullName = reservationForm.querySelector('input[type="text"]').value;
+    const email = reservationForm.querySelector('input[type="email"]').value;
+    const phone = reservationForm.querySelector('input[type="tel"]').value;
+    const guests = reservationForm.querySelector('input[type="number"]').value;
+    const eventType = reservationForm.querySelector("select").value;
 
-        e.preventDefault();
+    if (!fullName || !email || !phone || !guests || !eventType) {
 
-        const fullName =
-            reservationForm.querySelector(
-                'input[type="text"]'
-            ).value;
-
-        const email =
-            reservationForm.querySelector(
-                'input[type="email"]'
-            ).value;
-
-        const phone =
-            reservationForm.querySelector(
-                'input[type="tel"]'
-            ).value;
-
-        const guests =
-            reservationForm.querySelector(
-                'input[type="number"]'
-            ).value;
-
-        const eventType =
-            reservationForm.querySelector(
-                "select"
-            ).value;
-
-
-        /* VALIDASI */
-
-        if (
-
-            !fullName ||
-
-            !email ||
-
-            !phone ||
-
-            !guests ||
-
-            !eventType
-
-        ) {
-
-            alert("Please complete all fields.");
-
-            return;
-
-        }
-
-
-        /* ==========================================
-           JIKA BELUM PAKAI SUPABASE
-        ========================================== */
-
-        if (
-
-            SUPABASE_URL === "https://sepidopkbjofeqoikbft.supabase.co" ||
-
-            SUPABASE_ANON_KEY === "sb_publishable_kWq2BVS946uicaSLVMrMFQ_aM_XcHZR"
-
-        ) {
-
-            console.table({
-
-                fullName,
-
-                email,
-
-                phone,
-
-                guests,
-
-                eventType
-
-            });
-
-            alert(
-
-                "Reservation submitted successfully! (Simulation Mode)"
-
-            );
-
-            reservationForm.reset();
-
-            return;
-
-        }
-
-
-        /* ==========================================
-           SUPABASE FETCH
-        ========================================== */
-
-        try {
-
-            const response = await fetch(
-
-                `${SUPABASE_URL}/rest/v1/reservations`,
-
-                {
-
-                    method: "POST",
-
-                    headers: {
-
-                        apikey:
-
-                            SUPABASE_ANON_KEY,
-
-                        Authorization:
-
-                            `Bearer ${SUPABASE_ANON_KEY}`,
-
-                        "Content-Type":
-
-                            "application/json",
-
-                        Prefer:
-
-                            "return=representation"
-
-                    },
-
-                    body: JSON.stringify({
-
-                        full_name: fullName,
-
-                        email: email,
-
-                        phone: phone,
-
-                        guests: Number(guests),
-
-                        event_type: eventType
-
-                    })
-
-                }
-
-            );
-
-            if (!response.ok) {
-
-    const errorData = await response.text();
-
-    console.log("STATUS :", response.status);
-    console.log("ERROR :", errorData);
-
-    alert(errorData);
-
-    return;
-}
-
-            alert(
-
-                "Reservation Successfully Sent!"
-
-            );
-
-            reservationForm.reset();
-
-        }
-
-        if (!response.ok) {
-
-    const errorData = await response.text();
-
-    console.log("STATUS :", response.status);
-    console.log("ERROR :", errorData);
-
-    alert(errorData);
-
-    return;
-}
-
-        }
+        alert("Please complete all fields.");
+        return;
 
     }
 
-);
+    // Simulation jika URL / KEY belum diisi
+    if (SUPABASE_URL === "" || SUPABASE_ANON_KEY === "") {
 
+        alert("Simulation Mode");
+        return;
 
-/* ==========================================================
-   BACK TO TOP
-   (Jika nanti ditambahkan tombol)
-========================================================== */
+    }
 
-const backTop = document.getElementById("backTop");
+    try {
 
-if (backTop) {
+        const response = await fetch(
+            `${SUPABASE_URL}/rest/v1/reservations`,
+            {
+                method: "POST",
 
-    window.addEventListener("scroll", () => {
+                headers: {
 
-        if (window.scrollY > 600) {
+                    apikey: SUPABASE_ANON_KEY,
 
-            backTop.classList.add("show");
+                    Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+
+                    "Content-Type": "application/json",
+
+                    Prefer: "return=representation"
+
+                },
+
+                body: JSON.stringify({
+
+                    full_name: fullName,
+
+                    email,
+
+                    phone,
+
+                    guests: Number(guests),
+
+                    event_type: eventType
+
+                })
+
+            }
+        );
+
+        const result = await response.text();
+
+        console.log("STATUS:", response.status);
+        console.log("RESPONSE:", result);
+
+        if (!response.ok) {
+
+            alert(result);
+            return;
 
         }
 
-        else {
+        alert("Reservation Successfully Sent!");
 
-            backTop.classList.remove("show");
+        reservationForm.reset();
 
-        }
+    }
 
-    });
+    catch (error) {
 
-    backTop.addEventListener("click", () => {
+        console.error(error);
 
-        window.scrollTo({
+        alert(error.message);
 
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-    });
-
-}
-
-
-/* ==========================================================
-   LOADING ANIMATION
-========================================================== */
-
-window.addEventListener("load", () => {
-
-    document.body.classList.add("loaded");
+    }
 
 });
-
-
-/* ==========================================================
-   CONSOLE MESSAGE
-========================================================== */
-
-console.log(
-`
-==========================================
- Gourmet Haven Restaurant
- Premium Website Prototype
- Frontend by First Garage
-==========================================
-`
-);
